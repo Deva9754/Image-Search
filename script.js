@@ -1,11 +1,11 @@
-const accesskey = "wHyU-3gTbgNSBt7iBU_gRNGEH-Lp04IgDxy6uZ81a_g"
+const accesskey = "wHyU-3gTbgNSBt7iBU_gRNGEH-Lp04IgDxy6uZ81a_g";
 
-const formE1 = document.querySelector("form")
-const inputE1 = document.getElementById("search-input")
-const searchresult = document.querySelector(".search-result")
-const showmore = document.getElementById("showmore")
+const formE1 = document.querySelector("form");
+const inputE1 = document.getElementById("search-input");
+const searchresult = document.querySelector(".search-results");
+const showmore = document.getElementById("showmore");
 
-let inputdata = ""
+let inputdata = "";
 let page = 1;
 
 async function searchimages() {
@@ -21,21 +21,21 @@ async function searchimages() {
         searchresult.innerHTML = "";
     }
     results.map((result) => {
-        const imagewrapper = document.createElement('div');
-        imagewrapper.classList.add(".search-result");
-        const image = document.createElement('img');
+        const imageWrapper = document.createElement("div");
+        imageWrapper.classList.add("search-result");
+        const image = document.createElement("img");
         image.src = result.urls.small;
         image.alt = result.alt_description;
-        const imageLink = document.createElement('a');
+        const imageLink = document.createElement("a");
         imageLink.href = result.links.html;
         imageLink.target = "_blank";
         imageLink.textContent = result.alt_description;
 
 
-        imagewrapper.appendChild(image);
-        imagewrapper.appendChild(imageLink);
+        imageWrapper.appendChild(image);
+        imageWrapper.appendChild(imageLink);
 
-        searchresult.appendChild(imagewrapper);
+        searchresult.appendChild(imageWrapper);
 
     })
     page++
